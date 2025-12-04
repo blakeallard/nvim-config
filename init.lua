@@ -35,3 +35,22 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+require('snippets')
+require('snippets')
+require('snippets')
+
+
+
+vim.keymap.set('n', '<F9>', ':bnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<F10>', ':bprevious<CR>', { noremap = true, silent = true })
+
+-- Mouse button tab navigation
+vim.keymap.set('n', '<C-PageDown>', ':bnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-PageUp>', ':bprevious<CR>', { noremap = true, silent = true })
+
+-- DAP keybindings (loaded last to avoid conflicts)
+vim.keymap.set('n', '<F9>', function() require('dap').toggle_breakpoint() end, { desc = 'Toggle Breakpoint' })
+vim.keymap.set('n', '<F5>', function() require('dap').continue() end, { desc = 'Start/Continue Debug' })
+vim.keymap.set('n', '<F10>', function() require('dap').step_over() end, { desc = 'Step Over' })
+vim.keymap.set('n', '<F11>', function() require('dap').step_into() end, { desc = 'Step Into' })
+

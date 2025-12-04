@@ -1,0 +1,49 @@
+Neovim Snippet Cheat Sheet (LuaSnip)
+=================================================
+
+BASIC / CORE SNIPPETS
+---------------------
+prep          → Standard preprocessor includes (iostream, string, vector)
+starter       → Full starter template with common includes and using directives
+mainn         → Basic main() function structure
+forr          → For loop
+whilee        → While loop
+
+CONTROL FLOW
+-------------
+ifelse        → Generic if / else if / else conditional
+switchh       → Switch statement
+trycatch      → Try / Catch / Throw structure
+
+FUNCTIONS / LOGIC
+-----------------
+func          → Generic function definition (returns int)
+templatefunc  → Function template for generic types
+validate      → Input validation loop (cin + error handling)
+
+FILE / DATA HANDLING
+--------------------
+fileio        → File I/O using ifstream and ofstream
+
+OBJECT-ORIENTED
+---------------
+classdef      → Full class definition (constructors, setters/getters, display)
+structdef     → Generic struct definition
+
+COMMENT BLOCKS (CS1D FORMAT)
+----------------------------
+headerblk     → File header (AUTHOR, CLASS, PROFESSOR, ASSIGNMENT)
+progdesc      → Program description section
+constblk      → Constants section
+vardecblk     → Variable declarations section
+inputblk      → Input section
+processblk    → Processing section
+outputblk     → Output section
+funproto      → Function prototypes section
+fundefblk     → Function definitions section
+classblk      → Class definitions section
+structblk     → Struct definitions section
+
+=================================================
+TIP: In Neovim, type any trigger in a .cpp file and press <Tab> to expand.
+=================================================

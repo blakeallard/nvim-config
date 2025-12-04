@@ -31,16 +31,16 @@ map("n", "<C-d>", ":t.<CR>", { desc = "Duplicate current line" })
 map("v", "<C-d>", ":t'><CR>gv", { desc = "Duplicate selection" })
 
 -- Extended movement (like Ctrl+D/U but for hjkl)
-map("n", "<C-h>", "5h", { desc = "Move left 5 characters" })
-map("n", "<C-l>", "5l", { desc = "Move right 5 characters" })
-map("n", "<C-j>", "5j", { desc = "Move down 5 lines" })
-map("n", "<C-k>", "5k", { desc = "Move up 5 lines" })
+-- map("n", "<C-h>", "5h", { desc = "Move left 5 characters" })
+-- map("n", "<C-l>", "5l", { desc = "Move right 5 characters" })
+-- map("n", "<C-j>", "5j", { desc = "Move down 5 lines" })
+-- map("n", "<C-k>", "5k", { desc = "Move up 5 lines" })
 
 -- Visual mode extended movement
-map("v", "<C-h>", "5h", { desc = "Extend selection left 5 characters" })
-map("v", "<C-l>", "5l", { desc = "Extend selection right 5 characters" })
-map("v", "<C-j>", "5j", { desc = "Extend selection down 5 lines" })
-map("v", "<C-k>", "5k", { desc = "Extend selection up 5 lines" })
+-- map("v", "<C-h>", "5h", { desc = "Extend selection left 5 characters" })
+-- map("v", "<C-l>", "5l", { desc = "Extend selection right 5 characters" })
+-- map("v", "<C-j>", "5j", { desc = "Extend selection down 5 lines" })
+-- map("v", "<C-k>", "5k", { desc = "Extend selection up 5 lines" })
 
 -- Resize windows with arrows
 map("n", "<C-Up>", ":resize -2<CR>", { desc = "Resize window up" })
@@ -137,3 +137,9 @@ map("n", "<leader>h", "<cmd>nohl<CR>", { desc = "Clear search highlights" })
 
 -- Quick save all
 map("n", "<leader>wa", "<cmd>wa<CR>", { desc = "Save all files" })
+
+-- Tmux Navigator (override NvChad window switching)
+map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux navigate left" })
+map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Tmux navigate down" })
+map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Tmux navigate up" })
+map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Tmux navigate right" })

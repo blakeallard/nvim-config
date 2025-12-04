@@ -1,12 +1,17 @@
+-- Load NVChad default LSP behavior
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
+-- Grab NVChad's LSP utilities
 local nvlsp = require "nvchad.configs.lspconfig"
 
+-- List of language servers to activate
 local servers = { "html", "cssls", "clangd" }  -- Added clangd
 
--- Configure lua_ls separately with proper settings
-lspconfig.lua_ls.setup {
+-- 🧠 Modern Neovim 0.11+ LSP setup
+-- Use vim.lsp.config instead of require('lspconfig')
+
+-- Configure lua_ls separately
+vim.lsp.config("lua_ls", {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
@@ -27,12 +32,13 @@ lspconfig.lua_ls.setup {
       },
     },
   },
-}
+})
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+-- Configure all other servers
+for _, server in ipairs(servers) do
+  vim.lsp.config(server, {
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
-  }
+  })
 end
