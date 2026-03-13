@@ -8,6 +8,8 @@ map("n", "<leader>w", "<cmd>w<CR>", { desc = "File Save" })
 map("n", "<leader>q", "<cmd>q<CR>", { desc = "File Quit" })
 map("n", "<leader>x", "<cmd>x<CR>", { desc = "File Save and quit" })
 
+-- Exit insert mode with jk
+map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 
 --File tree toggle
 map("n", "\\e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree"})
@@ -143,3 +145,17 @@ map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux navigate left" })
 map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Tmux navigate down" })
 map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Tmux navigate up" })
 map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Tmux navigate right" })
+
+-- Move terminal toggle from leader+t to Alt+i
+map({ "n", "t" }, "<A-i>", function()
+  require("nvterm.terminal").toggle "float"
+end, { desc = "Toggle Floating Terminal" })
+
+-- Enable print to .pdf
+map("n", "<leader>pd", function()
+    vim.cmd("!pygmentize -f html -O style=gruvbox-dark,full=true,linenos=1 % -o /tmp/code.html && sed -i '' 's/<\\/style>/ pre { font-size: 9px; white-space: pre-wrap; word-wrap: break-word; } <\\/style>/' /tmp/code.html && weasyprint /tmp/code.html %<.pdf")
+end, { desc = "Export to PDF" })
+
+-- Unbind the old mapping to stop it from getting in the way
+vim.keymap.del("n", "<leader>t")
+vim.keymap.del("i", "<Space>t")

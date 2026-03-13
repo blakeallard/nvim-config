@@ -63,4 +63,36 @@ return {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
+  {  -- ← Add proper indentation here
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("fzf-lua").setup({
+        files = {
+          file_ignore_patterns = { "venv/", "node_modules/", ".git/" },
+        },
+      })
+    end,
+    keys = {
+      { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find Files (fzf)" },
+      { "<leader>fg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep (fzf)" },
+    },
+  },
+
+  {
+  'kristijanhusak/vim-dadbod-ui',
+  dependencies = {
+    { 'tpope/vim-dadbod' },
+    { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' } },
+  },
+  cmd = {
+    'DBUI',
+    'DBUIToggle',
+    'DBUIAddConnection',
+  },
+  init = function()
+    vim.g.db_ui_use_nerd_fonts = 1
+  end,
+  },
+
 }

@@ -206,15 +206,17 @@ T AddValues(T a, T b)
 }}
 ]], {})),
 
-  -- Struct
-  s("structdef", fmt([[
+-- Struct
+s("structdef", fmt([[
 struct {}
 {{
     int id;
     std::string name;
     double value;
+    
+    {}() : id(0), name(""), value(0.0) {{}}
 }};
-]], { i(1, "Example") })),
+]], { i(1, "Example"), i(2, "Example") })),
 
 
   -- Header File Template
