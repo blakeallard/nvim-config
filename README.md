@@ -19,7 +19,9 @@ npm install -g @biomejs/biome
 ```
 
 **Nerd Font:**
-Download https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip, unzip, double-click `.ttf` files to install, then set as terminal font.
+1. Download https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
+2. Unzip and double-click `.ttf` files to install
+3. Open terminal settings and change font to "JetBrainsMono Nerd Font"
 
 ## Installation
 
