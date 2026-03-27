@@ -4,16 +4,24 @@
 
 **Mac:**
 ```bash
-brew install neovim git ripgrep lazygit fzf node llvm && npm install -g @biomejs/biome
+# Install Homebrew first (if not installed)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install tools
+brew install neovim git ripgrep lazygit fzf node llvm tmux && npm install -g @biomejs/biome
 ```
 
 **Linux:**
 ```bash
-sudo apt update && sudo apt install -y neovim git ripgrep lazygit fzf nodejs npm clangd build-essential gdb && npm install -g @biomejs/biome
+sudo apt update && sudo apt install -y neovim git ripgrep lazygit fzf nodejs npm clangd build-essential gdb tmux && npm install -g @biomejs/biome
 ```
 
-**Windows:**
+**Windows (PowerShell as Admin):**
 ```powershell
+# Install winget if needed (Windows 10 1809+)
+# Already installed on Windows 11
+
+# Install tools
 winget install Neovim.Neovim Git.Git BurntSushi.ripgrep.MSVC fzf OpenJS.NodeJS
 npm install -g @biomejs/biome
 ```
@@ -27,17 +35,25 @@ npm install -g @biomejs/biome
 
 **Mac/Linux:**
 ```bash
-mv ~/.config/nvim ~/.config/nvim.backup
+# Backup existing config (ignore error if folder doesn't exist)
+mv ~/.config/nvim ~/.config/nvim.backup 2>/dev/null
+
+# Clone and start
 git clone https://github.com/blakeallard/nvim-config ~/.config/nvim
 nvim
 ```
 
 **Windows:**
 ```powershell
-mv ~\AppData\Local\nvim ~\AppData\Local\nvim.backup
+# Backup existing config (ignore error if folder doesn't exist)
+mv ~\AppData\Local\nvim ~\AppData\Local\nvim.backup -ErrorAction SilentlyContinue
+
+# Clone and start
 git clone https://github.com/blakeallard/nvim-config ~\AppData\Local\nvim
 nvim
 ```
+
+Wait for plugins to install on first launch, then restart Neovim.
 
 ## Credits
 
