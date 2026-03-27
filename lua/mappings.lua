@@ -117,15 +117,16 @@ map("n", "<leader>D", vim.lsp.buf.type_definition, { desc = "LSP Type definition
 map("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
 map("n", "<leader>lf", vim.lsp.buf.format, { desc = "LSP Format" })
 
--- Telescope enhanced
-map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Telescope Live grep" })
-map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Telescope Find buffers" })
-map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Telescope Help page" })
-map("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "Telescope Find marks" })
-map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Telescope Find oldfiles" })
-map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Telescope Find in current buffer" })
-map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "Telescope Git commits" })
-map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "Telescope Git status" })
+-- fzf-lua
+map("n", "<leader>ff", "<cmd>FzfLua files<CR>", { desc = "Find files" })
+map("n", "<leader>fw", "<cmd>FzfLua live_grep<CR>", { desc = "Live grep" })
+map("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", { desc = "Find buffers" })
+map("n", "<leader>fh", "<cmd>FzfLua help_tags<CR>", { desc = "Help page" })
+map("n", "<leader>ma", "<cmd>FzfLua marks<CR>", { desc = "Find marks" })
+map("n", "<leader>fo", "<cmd>FzfLua oldfiles<CR>", { desc = "Find oldfiles" })
+map("n", "<leader>fz", "<cmd>FzfLua blines<CR>", { desc = "Find in current buffer" })
+map("n", "<leader>cm", "<cmd>FzfLua git_commits<CR>", { desc = "Git commits" })
+map("n", "<leader>gt", "<cmd>FzfLua git_status<CR>", { desc = "Git status" })
 
 -- Git mappings
 map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "LazyGit" })

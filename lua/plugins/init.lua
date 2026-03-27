@@ -124,41 +124,184 @@ return {
     opts = {},
   },
 
-  -- 11. Lualine (statusline)
-  {
-    "nvim-lualine/lualine.nvim",
-    lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("lualine").setup({
-        options = {
-          theme = "auto",
-          component_separators = { left = "", right = "" },
-          section_separators   = { left = "", right = "" },
-          globalstatus = true,
+-- MEGA THEME PACK
+{
+  "ellisonleao/gruvbox.nvim",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    require("gruvbox").setup({ transparent_mode = true })
+  end,
+},
+
+{
+  "shaunsingh/nord.nvim",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    vim.g.nord_disable_background = true
+  end,
+},
+
+{
+  "bluz71/vim-nightfly-colors",
+  name = "nightfly",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    vim.g.nightflyTransparent = true
+  end,
+},
+
+{
+  "rose-pine/neovim",
+  name = "rose-pine",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    require("rose-pine").setup({ disable_background = true })
+  end,
+},
+
+{
+  "rebelot/kanagawa.nvim",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    require("kanagawa").setup({ transparent = true })
+  end,
+},
+
+{
+  "EdenEast/nightfox.nvim",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    require("nightfox").setup({ options = { transparent = true } })
+  end,
+},
+
+{
+  "Mofiqul/dracula.nvim",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    require("dracula").setup({ transparent_bg = true })
+  end,
+},
+
+{
+  "marko-cerovac/material.nvim",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    vim.g.material_style = "darker"
+    require("material").setup({ disable = { background = true } })
+  end,
+},
+
+{
+  "navarasu/onedark.nvim",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    require("onedark").setup({ transparent = true })
+  end,
+},
+
+{
+  "projekt0n/github-nvim-theme",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    require("github-theme").setup({ options = { transparent = true } })
+  end,
+},
+
+{
+  "sainnhe/everforest",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    vim.g.everforest_transparent_background = 1
+  end,
+},
+
+{
+  "sainnhe/sonokai",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    vim.g.sonokai_transparent_background = 1
+  end,
+},
+
+{
+  "sainnhe/edge",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    vim.g.edge_transparent_background = 1
+  end,
+},
+
+{
+  "arcticicestudio/nord-vim",
+  priority = 1000,
+  lazy = false,
+},
+
+{
+  "jonathanfilip/vim-lucius",
+  priority = 1000,
+  lazy = false,
+},
+
+-- 11. Lualine (statusline)
+{
+  "nvim-lualine/lualine.nvim",
+  lazy = false,
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    require("lualine").setup({
+      options = {
+        theme = "auto",
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        globalstatus = true,
+      },
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { 
+          "branch",
+          "diff",
+          {
+            "diagnostics",
+            sources = { "nvim_lsp" },
+            symbols = { error = " ", warn = " ", info = " ", hint = " " },
+          },
         },
-        sections = {
-          lualine_a = {
-            { "mode", separator = { left = "", right = "" } },
-          },
-          lualine_b = {
-            { "filename", path = 3, symbols = { modified = "  ", readonly = " ", unnamed = " [No Name]" } },
-            { "branch", icon = "" },
-          },
-          lualine_c = {
-            { "diagnostics", sources = { "nvim_lsp" }, symbols = { error = " ", warn = " ", info = " " } },
-          },
-          lualine_x = {
-            { "filetype", icon_only = false },
-          },
-          lualine_y = { "progress" },
-          lualine_z = {
-            { "location", separator = { left = "", right = "" } },
-          },
+        lualine_c = {
+          { "filename", path = 1, symbols = { modified = " ", readonly = " " } },
         },
-      })
-    end,
-  },
+        lualine_x = {
+          "encoding",
+          "fileformat",
+          "filetype",
+        },
+        lualine_y = {
+          "progress",
+          "location",
+        },
+        lualine_z = {
+          function()
+            return " " .. os.date("%R")
+          end,
+        },
+      },
+    })
+  end,
+},
 
   -- 12. Indent guides
   {
@@ -179,64 +322,6 @@ return {
     end,
   },
 
-  -- 13. Dashboard
-  {
-    "nvimdev/dashboard-nvim",
-    lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("dashboard").setup({
-        theme = "doom",
-        config = {
-          header = {
-            "",
-            "",
-            "  ██████╗ ██╗      █████╗ ██╗  ██╗███████╗",
-            "  ██╔══██╗██║     ██╔══██╗██║ ██╔╝██╔════╝",
-            "  ██████╔╝██║     ███████║█████╔╝ █████╗  ",
-            "  ██╔══██╗██║     ██╔══██║██╔═██╗ ██╔══╝  ",
-            "  ██████╔╝███████╗██║  ██║██║  ██╗███████╗",
-            "  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝",
-            "",
-            "",
-          },
-          center = {
-            {
-              icon   = "  ",
-              desc   = "Find File",
-              key    = "f",
-              action = "Telescope find_files",
-            },
-            {
-              icon   = "  ",
-              desc   = "Recent Files",
-              key    = "r",
-              action = "Telescope oldfiles",
-            },
-            {
-              icon   = "  ",
-              desc   = "Find Word",
-              key    = "g",
-              action = "Telescope live_grep",
-            },
-            {
-              icon   = "  ",
-              desc   = "Config",
-              key    = "c",
-              action = "edit ~/.config/nvim/lua/plugins/init.lua",
-            },
-            {
-              icon   = "  ",
-              desc   = "Quit",
-              key    = "q",
-              action = "qa",
-            },
-          },
-        },
-      })
-    end,
-  },
-
   -- 14. Dressing (better UI inputs)
   {
     "stevearc/dressing.nvim",
@@ -250,7 +335,7 @@ return {
         },
         select = {
           enabled = true,
-          backend = { "telescope", "builtin" },
+          backend = { "fzf-lua", "builtin" },
         },
       })
     end,
@@ -326,4 +411,30 @@ return {
     end,
   },
 
-}
+-- 21. In-line Claude code suggestions
+{
+  "Cannon07/claude-preview.nvim",
+  config = function()
+    require("claude-preview").setup({
+      diff = { layout = "inline" }, -- or "tab" for side-by-side
+    })
+  end,
+},
+
+-- 22. Fuzzy Finder
+{
+  "ibhagwan/fzf-lua",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    require("fzf-lua").setup()
+  end,
+},
+
+{
+  "iamcco/markdown-preview.nvim",
+  ft = "markdown",
+  build = "cd app && npm install",
+  config = function()
+    vim.g.mkdp_auto_close = 0
+  end,
+},
