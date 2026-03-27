@@ -158,5 +158,3 @@ map("n", "<leader>pd", function()
 end, { desc = "Export to PDF" })
 
 -- Unbind the old mapping to stop it from getting in the way
-vim.keymap.del("n", "<leader>t")
-vim.keymap.del("i", "<Space>t")

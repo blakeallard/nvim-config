@@ -39,6 +39,11 @@ ls.add_snippets("cpp", {
     t({"", "}"})
   }),
 
+  -- Vector declaration
+  s("vec", {
+    t("vector<"), i(1, "int"), t("> "), i(2, "myVector"), t(";"),
+  }),
+
   -- While loop
   s("whilee", {
     t("while ("), i(1), t(")"),
