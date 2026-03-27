@@ -1,9 +1,38 @@
-**This repo is supposed to be used as config by NvChad users!**
+# Blake's NvChad Configuration
 
-- The main nvchad repo (NvChad/NvChad) is used as a plugin by this repo.
-- So you just import its modules , like `require "nvchad.options" , require "nvchad.mappings"`
-- So you can delete the .git from this repo ( when you clone it locally ) or fork it :)
+Fully-configured Neovim setup with C++ development, debugging, and modern tooling.
 
-# Credits
+## Prerequisites
 
-1) Lazyvim starter https://github.com/LazyVim/starter as nvchad's starter was inspired by Lazyvim's . It made a lot of things easier!
+**Mac:**
+```bash
+brew install neovim git ripgrep lazygit fzf node llvm && npm install -g @biomejs/biome
+```
+
+**Linux:**
+```bash
+sudo apt update && sudo apt install -y neovim git ripgrep lazygit fzf nodejs npm clangd build-essential gdb && npm install -g @biomejs/biome
+```
+
+**Nerd Font:** Download from https://www.nerdfonts.com/ (FiraCode, JetBrainsMono, or Hack)
+
+## Installation
+```bash
+mv ~/.config/nvim ~/.config/nvim.backup
+git clone https://github.com/blakeallard/nvim-config ~/.config/nvim
+nvim
+```
+
+Wait for plugins to install, then restart.
+
+## Reference Materials
+
+Check `docs/` folder for guides on plugins, snippets, terminal tools, and tmux.
+
+## Features
+
+C++ LSP and debugging, LazyGit integration, fzf search, 15+ themes, Treesitter, ToggleTerm, TypeScript/React support.
+
+## Credits
+
+[NvChad](https://github.com/NvChad/NvChad) | [LazyVim starter](https://github.com/LazyVim/starter)
