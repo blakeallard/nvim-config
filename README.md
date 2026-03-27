@@ -58,3 +58,14 @@ Wait for plugins to install on first launch, then restart Neovim.
 ## Credits
 
 [NvChad](https://github.com/NvChad/NvChad) | [LazyVim](https://github.com/LazyVim/starter)
+
+## Extra Credit: Create Your Own Snippet
+
+Edit `~/.config/nvim/lua/snippets.lua` and add:
+```lua
+s("trigger", {
+  t("your text here")
+}),
+```
+
+Restart Neovim. Type `trigger` + Tab to use it.
