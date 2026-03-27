@@ -69,3 +69,15 @@ s("trigger", {
 ```
 
 Restart Neovim. Type `trigger` + Tab to use it.
+
+## Extra Credit: Create Your Own Snippet
+
+Edit `~/.config/nvim/lua/snippets.lua` and add this inside the first `ls.add_snippets("cpp", {` block (after the `prep` snippet):
+```lua
+  -- Vector declaration
+  s("vec", {
+    t("vector<"), i(1, "int"), t("> "), i(2, "myVector"), t(";"),
+  }),
+```
+
+Restart Neovim. Type `vec` + Tab in a C++ file to create: `vector<int> myVector;`
